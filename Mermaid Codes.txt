@@ -1,0 +1,35 @@
+---
+config:
+      theme: redux
+---
+flowchart TD
+    A[User Input] --> B[Flask API Endpoint\n/api/process]
+    B --> C[Handle Input]
+    C --> D[Process Input\nIntent and Entity Recognition]
+    D -->|Query| E[Generate Query\nOdoo ORM]
+    D -->|Command| F[Execute Command\nCreate/Update in Odoo]
+
+    E --> G[Fetch Data from Odoo]
+    F --> H[Push Data to Odoo]
+
+    G --> I[Format Output\nText/Table]
+    H --> I
+
+    I --> J[Return JSON Response\nto Frontend]
+
+    subgraph NLP Engine
+        D1[spaCy NER]
+        D2[OpenAI GPT-4]
+        D --> D1
+        D --> D2
+    end
+
+    subgraph Odoo
+        G1[Odoo ORM odoorpc]
+        H1[Sale, Product, Partner Models]
+        G --> G1 --> H1
+        H --> H1
+    end
+
+
+
