@@ -10,7 +10,7 @@ git branch -M main
 echo Configuring remote origin...
 git remote remove origin 2>nul
 git remote add origin https://github.com/hemalsureja/Kitoko-RFM-Analysis.git
-echo Pushing to GitHub...
-git push -u origin main
+echo Pushing to GitHub (Force)...
+git push -f -u origin main
 echo Done!
 pause
