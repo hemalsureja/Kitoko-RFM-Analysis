@@ -154,9 +154,9 @@ class KitokoDataPipeline:
         return rfm_df
 
 if __name__ == "__main__":
-    # Example Usage:
-    # Set this to the project's root data folder
-    DATA_DIR = r"D:\OneDrive - Cloud Wellness Pvt Ltd\Wallpapers\Hemal sureja\COLLEGE_NOTES (SEM-1,2,3) BDA\final year project Data (kitoko)"
+    # Dynamically resolve directory to make the project portable
+    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+    DATA_DIR = os.path.dirname(SCRIPT_DIR)
     
     pipeline = KitokoDataPipeline(DATA_DIR)
     
